@@ -97,7 +97,7 @@ If any lists are applcable besides the utility list, those records are checked a
 ### 3. Utility Data Exclusions
 Depending on the operating state (`OH` or `IL`) there are different rules that govern which accounts are eligible to enroll.
 Using the available data on the `Filter Tab`, various fields are checked against the eligibility condition for that state and the `Status` of each account is updated accordingly.
-The order those fields are checked in and the conditions for eligibility can be found [here](#filter-order)
+The order those fields are checked in and the conditions for eligibility can be found [here](#eligibility-filter-order)
 
 ### 4. External Data Exclusions
 In addition to the rules put forth by the operating state, there are requirements to check outside sources of data to further trim the eligible population after the initial checks.
@@ -148,5 +148,11 @@ The possible files created and saved in the community mailing folder include the
 * Drops at Renewal List
 
 ## Special Cases
+
+## Filter Tab Columns
+
+## Eligibility Filter Order
+
+## Peer Review Checklist
 
 ## Known Issues
