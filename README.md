@@ -1,4 +1,4 @@
-# List-Management-Tool
+# List-Management-Tool `Draft #1 (11-10-25)`
 
 &copy; 2025 Andrew Rodgers
 
@@ -15,7 +15,8 @@ Detailed technical documentation can be found [here] <!-- [here] (TECHNICAL_DOC.
 `Filtering` - the process of removing ineligible accounts from any lists relevant to a mailing.\
 `Status` - label desribing the eligibility of an account
 `Home Tab` - the worksheet on the waterfall named HOME. Contains pivot tables, summaries, and configuration data for the waterfall.\
-`Filter Tab` - the worksheet on the waterfall named FILTER. Contains a standardized dataset for the mailing, containing each account and various fields describing its status 
+`Filter Tab` - the worksheet on the waterfall named FILTER. Contains a standardized dataset for the mailing, containing each account and various fields describing its status.\
+`Geocoding` - the process of translating an address to a geographic location.\
 `Mapping` - the process of geocoding addresses and using the results to determine eligibility
 
 ## Utilities
@@ -89,7 +90,7 @@ All required files must be imported before proceeding to the next step.
 
 ### 2. Normalize Data
 After all required files have been imported, the utility data (if present) is transferred to the `Filter Tab`, which contains all the rows from the utility file, but the columns are standardized.
-This enables us to easily read data from every utility the exact same way. Details about the various columns can be found [here](FILTER_TAB.md).
+This enables us to easily read data from every utility the exact same way. Details about the various columns can be found [here](#filter-tab).
 If a field is not provided on the utility list, it is marked with the standard `-` to denote an empty cell.
 If any lists are applcable besides the utility list, those records are checked against the existing list and any mismatches are added, populating any fields that are available on the list.
 
@@ -101,18 +102,51 @@ The order those fields are checked in and the conditions for eligibility can be 
 ### 4. External Data Exclusions
 In addition to the rules put forth by the operating state, there are requirements to check outside sources of data to further trim the eligible population after the initial checks.
 
-### Do Not Aggregate `DNA`
-In `OH`, there is a list maintained by the PUCO of customers wishing to not be included in any aggregation programs.
-Called the `Do Not Aggregate List`, or `DNA List`, the tool will check the eligible accounts against a recent copy of the `DNA List` and provide the user with a sheet of potential matches for manual comparison.
+#### Do Not Aggregate (DNA)
+In OH, the PUCO maintains a list of customers wishing to not be included in any aggregation programs, called the `Do Not Aggregate List`, or `DNA List`.
+The tool checks the eligible accounts against a recent copy of the `DNA List` and provides the user with a sheet of potential matches for manual comparison.
 Due to less-than-ideal data on this list, there are 2 kinds of searches carried out in this step.
 First is an account number match, meaning that if an account number is present on our eligible list as well as the `DNA List`, it is added to the comparison.
 Second is the more wide-reaching address wildcard search.
 The first `12` characters of the service address are compared to the first `12` characters of those addresses on the list and any matches are added to the comparison.
 This is done to prevent any misspellings from affecting the accuracy of our search (`168 E Market St` vs `168 E Market Street` would both use `168 E Market` as the search term).
-This comparison includes the customer name, service address, and account number. The user uses `Y` and `N` to notate which instances are truly matching.
-### 5. Export Data
+This comparison includes the customer name, service address, and account number.
+The user uses `Y` and `N` to notate which instances are truly matching.
 
+#### LandPower System Comparison (Contracts Query)
+Due to the time delay between a customer enrolling and the utility file being updated to reflect the new shopping status, it is necessary to query the Vistra systems to ensure the account is not participating in any electric choice programs offered by Vistra.
+In order to query all account activity in the Vistra systems, the eligible account numbers are put into a SQL query that returns any enrollemnt activity matching these account numbers. This query is currently run manually by the user, but may be automated in a future version.
+>[!NOTE]
+>There is a known gap in this step. The query only has access to accounts in `Mass Market` and `Muni-agg` programs, so any activity in another sales channel will not be returned in the query results.
 
+Using only the most recent activity on each account, the current enrollment status is determined. If an account is active on any other Vistra programs, its `Status` is updated accordingly and it is excluded from the current mailing.
+
+#### Geocoding (Mapping)
+Legal has mandated that only customers located in the eligible boundaries for the program can be enrolled.
+Due to the time required to geocode an entire list, there is another tool (see [Mapping Tool](MAPPING_TOOL.md) specifically used for geocoding.
+For each account, the service address is mapped and the customer is determined to be inside the geographic boundaries of the program (`Mapped In`) or outside (`Mapped Out`).
+Any accounts that are `Mapped Out` are ineligible for enrollment, and all other accounts are eligible.
+Using the results from this mapping, each `Status` is updated accordingly to reflect the geographic eligibility of an account and the geocoded community is added to the `Filter Tab` for tracking.
+
+### 5. Create Upload File
+When all eligibility filter have been applied to disposition accounts as either `Eligible` or `Ineligible`, the user enters the mailing details for this list in order to create the upload file for the LandPower system.
+These details include Community Name (already entered), Contract Number (C-00XXXXXX), and Opt-Out Date (MM/DD/YY).
+The LandPower upload file is based on the template for the Muni-Agg File Processor, so the normalized data columns from the `Filter Tab`, as well as the mailing details, can be used to populate required fields.
+The user is prompted to review a subset of these fields for accuracy and must make corrections if the data does not meet the quality standards required for upload to LandPower.
+Once data quality is confirmed, the user must save and send the waterfall file to another analyst for `Peer Review`.
+
+### 6. Export Data
+There is a [Peer Review Checklist](#peer-review-checklist) for the analyst doing peer review to follow.
+When all items on the checklist are complete, the peer reivew analyst can click the `Export Files` button.
+This will create the upload file required for LandPower, as well as exporting a specially formatted Mail List, which will be sent to the printer after upload.
+In some cases, there will be additional files created.
+The possible files created and saved in the community mailing folder include the following,
+
+* Email to Printer
+* LandPower Upload Email
+* Opt-In Mail List
+* Drops at Renewal List
 
 ## Special Cases
 
+## Known Issues
