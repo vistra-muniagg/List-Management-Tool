@@ -6,17 +6,6 @@ Generated on 2025-11-13 19:53:49
   Executive Summary
   This document consolidates the uploaded BAS-style automation scripts, accompanying process notes, and related artifacts found in the session. It is intended as a developer-ready reference for on-boarding, architecture understanding, and quick-look data access for the remote Python-based extraction workflow.
 
-## Architecture
-
-  - Centralized remote file system (RFS) hosting all modules and artifacts.
-  - Python-based data-extraction layer using:
-    - PyMuPDF (fitz) for PDF text extraction
-    - python-docx for Word content extraction
-    - pandas/openpyxl for Excel/CSV data sampling
-  - Lightweight Markdown-based documentation surface exported as README.md
-  - Module-map driven by file metadata; descriptive prose derived from header comments when present
-  - TODOs for missing source-detail derivations and integration points
-
 ## Module Map
 
 | Module | Description |
