@@ -1,27 +1,31 @@
 # List Management Tool Technical Documentation
-Generated on 2025-11-13 19:53:49
-
-## Executive Summary
-
-  Executive Summary
-  This document consolidates the uploaded BAS-style automation scripts, accompanying process notes, and related artifacts found in the session. It is intended as a developer-ready reference for on-boarding, architecture understanding, and quick-look data access for the remote Python-based extraction workflow.
 
 ## Module Map
 
 | Module | Description |
-|---|---|
-| A0_settings | Public Type HomeTabSettings |
-| A1_EDC | system names validation info gagg list import |
-| A2_mail_type | how to get mail type selection? |
-| A4_filter_tab | Public filter_tab_initialized As Boolean |
-| A9_init | If all_initialized Then Exit Sub progress.start ("Initializing") |
-| C1_process_active | init active_accounts = active_tab.UsedRange.columns(1).value active_accounts = flatten_array(active_accounts) |
-| D1_filter | pipp state rules usage |
-| D2_dna | Sub dna_test() |
-| D3_contracts | init get_contracts_file |
+|---|---
+| A0_settings |  |
+| A1_EDC |  |
+| A2_mail_type |  |
+| A4_filter_tab |  |
+| A9_init |  |
+| B1_import |  |
+| B2_preprocess |  |
+| B3_format_data |  |
+| C1_process_active |  |
+| D1_filter |  |
+| D2_dna |  |
+| D3_contracts |  |
 | D4_migration |  |
 | D5_mapping |  |
 | D6_misc | extra specialized processes done after filtering |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
 ## Detailed Module References
 
