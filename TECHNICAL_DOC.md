@@ -87,6 +87,73 @@ The List Management Tool determines eligibility for accounts on a list for a spe
 - Complex logic and many special cases for each utility and mailing type.
 - [Documented issues and further details can be added in dedicated sections.]
 
+## Setup Files (`A0_settings.bas` to `A9_init.bas`)
+
+The List Management Tool relies on a series of configuration and initialization modules named `A0_settings.bas` through `A9_init.bas`. These files are implemented as VBA modules and are critical for the runtime environment of the tool, typically within Excel or a similar environment.
+
+### Overview & Organization
+
+- **A0_settings.bas**: Central configuration module (global constants, default parameters, user options).
+- **A1_community.bas**: Contains logic and settings for handling community details such as names, IDs, contract numbers, and configurations relevant to each mailing.
+- **A2_utilities.bas**: Maps utility identifiers, account formatting conventions, and provides utility-specific operational logic.
+- **A3_mailtype.bas**: Encapsulates mailing type recognition, toggles, and type-specific controls (CR, SWP, NEW, REN_ONLY).
+- **A4_fieldmap.bas**: Contains logic and lookup definitions for standardizing and normalizing imported data fields.
+- **A5_eligibility.bas**: Implements eligibility rules, filtering order, and state/utility-specific criteria.
+- **A6_datasources.bas**: Manages external data connection setup and queries (DNA List reference, LandPower, or other databases).
+- **A7_address.bas**: Processes address normalization and prepares geocoding/mapping routines.
+- **A8_peerreview.bas**: Versioning and logic for peer review steps and checklist handling.
+- **A9_init.bas**: Initialization and runtime setup—ensures all modules and configuration files are loaded and ready.
+
+### Example Responsibilities
+
+- **Initialization routines** are typically in `A9_init.bas`, ensuring all configuration and dependency modules (`A0`–`A8`) are loaded at workbook open.
+- **Global constants** and shared parameters are usually defined in `A0_settings.bas`.
+- **Eligibility logic** (such as filtering rules per state and utility) is implemented in `A5_eligibility.bas`.
+- **Community and contract details** (such as opt-out windows or contract numbers) are handled in `A1_community.bas`.
+- **Utility file mapping** and specific formatting (e.g. AES vs. COM fields) are managed in `A2_utilities.bas` and `A4_fieldmap.bas`.
+- **External data source querying** (SQL for LandPower or .csv for DNA List) routines are in `A6_datasources.bas`.
+- **Address normalization** and preparation for mapping are processed in `A7_address.bas`.
+
+### Typical Structure
+
+Each `.bas` file contains one or more VBA modules or classes, organizing procedures and variables relevant to its configuration or operation area. 
+Common elements in these files may include:
+
+```vbnet
+' A0_settings.bas Example
+Public Const DEFAULT_EDC As String = "AES"
+Public Const DEFAULT_MAIL_TYPE As String = "CR"
+Public UserOptions As Collection
+
+Sub LoadSettings()
+    ' Load global settings from workbook or SharePoint config
+End Sub
+```
+
+```vbnet
+' A5_eligibility.bas Example
+Function IsAccountEligible(accountInfo As AccountType) As Boolean
+    ' ... complex filter and state logic
+    If accountInfo.State = "OH" Then
+        ' Apply Ohio-specific rules
+    End If
+End Function
+```
+
+### Usage & Maintenance
+
+- **Required for Tool Execution**: All files `A0_settings.bas` through `A9_init.bas` must be present and properly referenced in the VBA project for the tool to function.
+- **Update & Documentation**: Each file/module should be independently documented, with comments for all procedures and configuration values.
+- **Version Control**: Whenever changes are made, version information should be updated in module headers for audit trail purposes.
+- **Customization**: For new utilities, mailing types, or eligibility rules, update the relevant `.bas` file with new mappings or logic.
+
+### Best Practices
+
+- Modularize settings and logic—avoid hardcoding business logic in worksheet code-behind.
+- Use shared constants for parameter values to ease maintenance.
+- Add header comments to each `.bas` file indicating its role and date/version.
+- Cross-reference these modules in your README or separate developer guide when onboarding new maintainers.
+
 ---
 
-For a user-level summary and workflow, see the [README.md](https://github.com/vistra-muniagg/List-Management-Tool/blob/main/README.md). This technical guide should be supplemented with instruction on additional sheets (Mapping Tool, special logic tabs) and further breakdowns for eligibility and file formats as needed.
+If you need file header templates or want a breakdown of typical functions/procedures for each module, I can provide examples for your VBA environment!
