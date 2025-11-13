@@ -19,40 +19,27 @@ Generated on 2025-11-13 19:53:49
 
 ## Module Map
 
-Module Map
-| Module / File | Type | Description | Source Path |
-|---|---|---|---|
-| A0_settings.bas | .bas | Public Type HomeTabSettings | /mnt/data/A0_settings.bas |
-| A1_EDC.bas | .bas | system names validation info gagg list import | /mnt/data/A1_EDC.bas |
-| A2_mail_type.bas | .bas | how to get mail type selection? | /mnt/data/A2_mail_type.bas |
-| A4_filter_tab.bas | .bas | Public filter_tab_initialized As Boolean | /mnt/data/A4_filter_tab.bas |
-| A9_init.bas | .bas | If all_initialized Then Exit Sub progress.start ("Initializing") | /mnt/data/A9_init.bas |
-| C1_process_active.bas | .bas | init active_accounts = active_tab.UsedRange.columns(1).value active_accounts = flatten_array(active_accounts) | /mnt/data/C1_process_active.bas |
-| C1_process_active.docx | .docx | Module from C1_process_active.docx | /mnt/data/C1_process_active.docx |
-| C1_process_active.html | .html | Module from C1_process_active.html | /mnt/data/C1_process_active.html |
-| C1_process_active.json | .json | Module from C1_process_active.json | /mnt/data/C1_process_active.json |
-| C1_process_active.md | .md | Module from C1_process_active.md | /mnt/data/C1_process_active.md |
-| C1_process_active.pdf | .pdf | Module from C1_process_active.pdf | /mnt/data/C1_process_active.pdf |
-| C1_process_active.png | .png | Module from C1_process_active.png | /mnt/data/C1_process_active.png |
-| C1_process_active.pptx | .pptx | Module from C1_process_active.pptx | /mnt/data/C1_process_active.pptx |
-| C1_process_active.txt | .txt | Module from C1_process_active.txt | /mnt/data/C1_process_active.txt |
-| C1_process_active.xlsx | .xlsx | Module from C1_process_active.xlsx | /mnt/data/C1_process_active.xlsx |
-| D1-D6_workflow.md | .md | Module from D1-D6_workflow.md | /mnt/data/D1-D6_workflow.md |
-| D1_filter.bas | .bas | pipp state rules usage | /mnt/data/D1_filter.bas |
-| D2_dna.bas | .bas | Sub dna_test() | /mnt/data/D2_dna.bas |
-| D3_contracts.bas | .bas | init get_contracts_file | /mnt/data/D3_contracts.bas |
-| D4_migration.bas | .bas | get current contract | /mnt/data/D4_migration.bas |
-| D5_mapping.bas | .bas | init | /mnt/data/D5_mapping.bas |
-| D6_misc.bas | .bas | premise_mismatch_accounts | /mnt/data/D6_misc.bas |
-| Globals_and_Init.md | .md | Module from Globals_and_Init.md | /mnt/data/Globals_and_Init.md |
-
+| Module | Description |
+|---|---|
+| A0_settings | Public Type HomeTabSettings |
+| A1_EDC | system names validation info gagg list import |
+| A2_mail_type | how to get mail type selection? |
+| A4_filter_tab | Public filter_tab_initialized As Boolean |
+| A9_init | If all_initialized Then Exit Sub progress.start ("Initializing") |
+| C1_process_active | init active_accounts = active_tab.UsedRange.columns(1).value active_accounts = flatten_array(active_accounts) |
+| D1_filter | pipp state rules usage |
+| D2_dna | Sub dna_test() |
+| D3_contracts | init get_contracts_file |
+| D4_migration |  |
+| D5_mapping |  |
+| D6_misc | extra specialized processes done after filtering |
 
 ## Detailed Module References
 
-### Module: A0_settings.bas
+### Module: A0_settings
 
-- File: /mnt/data/A0_settings.bas
-- Type: .bas
+- File: /A0_settings
+- Type: 
 - Description: Public Type HomeTabSettings
 
 - Preview snippet:
@@ -90,10 +77,10 @@ Public Type HomeTabSettings
 End Type
 ```
 
-### Module: A1_EDC.bas
+### Module: A1_EDC
 
-- File: /mnt/data/A1_EDC.bas
-- Type: .bas
+- File: /A1_EDC
+- Type: 
 - Description: system names validation info gagg list import
 
 - Preview snippet:
@@ -140,10 +127,10 @@ Public Type UtilitySettings
     budget_bill As Str
 ```
 
-### Module: A2_mail_type.bas
+### Module: A2_mail_type
 
-- File: /mnt/data/A2_mail_type.bas
-- Type: .bas
+- File: /A2_mail_type
+- Type: 
 - Description: how to get mail type selection?
 
 - Preview snippet:
@@ -183,10 +170,10 @@ Sub define_mail_type(mail_type)
     ElseIf mail_type = S.UI.mail_type_items(2) T
 ```
 
-### Module: A4_filter_tab.bas
+### Module: A4_filter_tab
 
-- File: /mnt/data/A4_filter_tab.bas
-- Type: .bas
+- File: /A4_filter_tab
+- Type: 
 - Description: Public filter_tab_initialized As Boolean
 
 - Preview snippet:
@@ -232,10 +219,10 @@ Public Type FilterStatuses
     hourly_pricing As Filt
 ```
 
-### Module: A9_init.bas
+### Module: A9_init
 
-- File: /mnt/data/A9_init.bas
-- Type: .bas
+- File: /A9_init
+- Type: 
 - Description: If all_initialized Then Exit Sub progress.start ("Initializing")
 
 - Preview snippet:
@@ -280,10 +267,10 @@ Sub init(Optional k, Optional mail_type)
     If IsMissi
 ```
 
-### Module: C1_process_active.bas
+### Module: C1_process_active
 
-- File: /mnt/data/C1_process_active.bas
-- Type: .bas
+- File: /C1_process_active
+- Type: 
 - Description: init active_accounts = active_tab.UsedRange.columns(1).value active_accounts = flatten_array(active_accounts)
 
 - Preview snippet:
@@ -323,14 +310,14 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.docx
 
-- File: /mnt/data/C1_process_active.docx
+- File: /C1_process_active.docx
 - Type: .docx
 - Description: Module from C1_process_active.docx
 
 - Preview snippet:
 
 ```
-C1_process_active.bas - Documentation
+C1_process_active - Documentation
 Sub test_active()
     'init
     If Not MT.needs_active_list Then Exit Sub
@@ -365,15 +352,15 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.html
 
-- File: /mnt/data/C1_process_active.html
+- File: /C1_process_active.html
 - Type: .html
 - Description: Module from C1_process_active.html
 
 - Preview snippet:
 
 ```
-<html><head><meta charset='utf-8'><title>C1_process_active.bas Documentation</title></head><body>
-<h1>C1_process_active.bas Documentation</h1>
+<html><head><meta charset='utf-8'><title>C1_process_active Documentation</title></head><body>
+<h1>C1_process_active Documentation</h1>
 <p>No sections extracted.</p>
 <pre>Sub test_active()
     'init
@@ -407,7 +394,7 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.json
 
-- File: /mnt/data/C1_process_active.json
+- File: /C1_process_active.json
 - Type: .json
 - Description: Module from C1_process_active.json
 
@@ -415,7 +402,7 @@ Sub check_active_matches()
 
 ```
 {
-  "source": "C1_process_active.bas",
+  "source": "C1_process_active",
   "summary": "Sub test_active()\n    'init\n    If Not MT.needs_active_list Then Exit Sub\n    progress.start (\"Processing Active List\")\n    check_active_matches\n    progress.finish\nEnd Sub\n\nSub process_active()\n    I",
   "sections": []
 }
@@ -423,14 +410,14 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.md
 
-- File: /mnt/data/C1_process_active.md
+- File: /C1_process_active.md
 - Type: .md
 - Description: Module from C1_process_active.md
 
 - Preview snippet:
 
 ```
-# C1_process_active.bas Documentation
+# C1_process_active Documentation
 
 ## Overview
 Sub test_active()
@@ -467,7 +454,7 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.pdf
 
-- File: /mnt/data/C1_process_active.pdf
+- File: /C1_process_active.pdf
 - Type: .pdf
 - Description: Module from C1_process_active.pdf
 
@@ -479,20 +466,20 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.png
 
-- File: /mnt/data/C1_process_active.png
+- File: /C1_process_active.png
 - Type: .png
 - Description: Module from C1_process_active.png
 
 ### Module: C1_process_active.pptx
 
-- File: /mnt/data/C1_process_active.pptx
+- File: /C1_process_active.pptx
 - Type: .pptx
 - Description: Module from C1_process_active.pptx
 
 
 ### Module: C1_process_active.txt
 
-- File: /mnt/data/C1_process_active.txt
+- File: /C1_process_active.txt
 - Type: .txt
 - Description: Module from C1_process_active.txt
 
@@ -533,7 +520,7 @@ Sub check_active_matches()
 
 ### Module: C1_process_active.xlsx
 
-- File: /mnt/data/C1_process_active.xlsx
+- File: /C1_process_active.xlsx
 - Type: .xlsx
 - Description: Module from C1_process_active.xlsx
 
@@ -558,17 +545,17 @@ Sub check_active_matches()
 
 ### Module: D1-D6_workflow.md
 
-- File: /mnt/data/D1-D6_workflow.md
+- File: /D1-D6_workflow.md
 - Type: .md
 - Description: Module from D1-D6_workflow.md
 
 - Preview snippet:
 
 ```
-# C1_process_active.bas
+# C1_process_active
 
 Executive summary
-- This document describes the C1_process_active.bas module and how it integrates with the project&#39;s filter and mapping infrastructure. It provides an entry-point scaffold, inferred responsibilities, and concrete next steps to complete the doc when the source is available.
+- This document describes the C1_process_active module and how it integrates with the project&#39;s filter and mapping infrastructure. It provides an entry-point scaffold, inferred responsibilities, and concrete next steps to complete the doc when the source is available.
 - Where the source lacks explicit procedure signatures or examples, TODO placeholders mark required inputs so you can quickly finalize the file.
 
 ## Module overview
@@ -581,10 +568,10 @@ Executive summary
   - Purpose: Initialize module-level state and dependen
 ```
 
-### Module: D1_filter.bas
+### Module: D1_filter
 
-- File: /mnt/data/D1_filter.bas
-- Type: .bas
+- File: /D1_filter
+- Type: 
 - Description: pipp state rules usage
 
 - Preview snippet:
@@ -615,10 +602,10 @@ Sub filter_list()
         Call apply_bool_filter(ff, F.columns.free_serv
 ```
 
-### Module: D2_dna.bas
+### Module: D2_dna
 
-- File: /mnt/data/D2_dna.bas
-- Type: .bas
+- File: /D2_dna
+- Type: 
 - Description: Sub dna_test()
 
 - Preview snippet:
@@ -670,10 +657,10 @@ Sub test_dna(k)
     add_dna_formatting
 ```
 
-### Module: D3_contracts.bas
+### Module: D3_contracts
 
-- File: /mnt/data/D3_contracts.bas
-- Type: .bas
+- File: /D3_contracts
+- Type: 
 - Description: init get_contracts_file
 
 - Preview snippet:
@@ -723,10 +710,10 @@ Sub create_contracts_sql()
                 arr(k) = ",'" & dat
 ```
 
-### Module: D4_migration.bas
+### Module: D4_migration
 
-- File: /mnt/data/D4_migration.bas
-- Type: .bas
+- File: /D4_migration
+- Type: 
 - Description: get current contract
 
 - Preview snippet:
@@ -762,10 +749,10 @@ Sub check_legacy_data()
     migration_row = arra
 ```
 
-### Module: D5_mapping.bas
+### Module: D5_mapping
 
-- File: /mnt/data/D5_mapping.bas
-- Type: .bas
+- File: /D5_mapping
+- Type: 
 - Description: init
 
 - Preview snippet:
@@ -806,10 +793,10 @@ Sub import_mapping()
     If VarType(file_name) = 11 Then Exit Sub
 ```
 
-### Module: D6_misc.bas
+### Module: D6_misc
 
-- File: /mnt/data/D6_misc.bas
-- Type: .bas
+- File: /D6_misc
+- Type: 
 - Description: premise_mismatch_accounts
 
 - Preview snippet:
@@ -863,17 +850,17 @@ Sub find_DUKE_sibling_accounts()
 
 ### Module: Globals_and_Init.md
 
-- File: /mnt/data/Globals_and_Init.md
+- File: /Globals_and_Init.md
 - Type: .md
 - Description: Module from Globals_and_Init.md
 
 - Preview snippet:
 
 ```
-# C1_process_active.bas
+# C1_process_active
 
 Executive summary
-- This document describes the C1_process_active.bas module and how it integrates with the project&#39;s filter and mapping infrastructure. It provides an entry-point scaffold, inferred responsibilities, and concrete next steps to complete the doc when the source is available.
+- This document describes the C1_process_active module and how it integrates with the project&#39;s filter and mapping infrastructure. It provides an entry-point scaffold, inferred responsibilities, and concrete next steps to complete the doc when the source is available.
 - Where the source lacks explicit procedure signatures or examples, TODO placeholders mark required inputs so you can quickly finalize the file.
 
 ## Module overview
