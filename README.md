@@ -51,7 +51,7 @@ There are currently 4 different types of mailing supported.\
 **Renewal Only** `REN_ONLY`\
   Use a list of currently active customers from an expiring contract with no utility list to enroll those currently active customers on a new contract.
   
-**Term Renewal (Not Supported)** `TR`\
+**Term Renewal (Not Currently Supported)** `TR`\
   (Need description)
 
 ## Using The Tool
