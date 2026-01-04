@@ -100,9 +100,27 @@ graph TD
         FE_delete_second_row
     end
 
-    Import_GAGG_List --> Trim_Data
-    
+    subgraph Format_Utility_Data
+    direction LR
+        remove_tabs_from_headers --> find_account_column
+        Format_Account_Numbers --> dedupe_accounts
+    end
 
-```
+    subgraph Format_Account_Numbers
+    direction LR
+        format_as_string -->|"FE"| A["080*<br>add_leading_zeros<br>len=20"]
+        format_as_string -->|"OP"| B["001400607*<br>add_leading_zeros<br>len=17"]
+        format_as_string -->|"CS"| C["000406210*<br>add_leading_zeros<br>len=17"]
+        format_as_string -->|"AES"| D["080*<br>add_leading_zeros<br>len=23"]
+        format_as_string -->|"DUKE"| E["[#x12]Z[#x9]<br>add_leading_zeros<br>len=22"]
+        format_as_string -->|"AM"| F["*<br>add_leading_zeros<br>len=10"]
+        format_as_string -->|"COM"| G["*<br>add_leading_zeros<br>len=10"]
+    end
+
+    Import_GAGG_List ==> Trim_Data
+    Trim_Data ==> Format_Utility_Data
+    find_account_column --> format_as_string
+
+
 
 ```
