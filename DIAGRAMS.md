@@ -65,8 +65,11 @@ graph TD
         copy_second_tab --> paste_data
         paste_data -->|"loop for each file"| open_file
     end
+```
 
 ### Trim Data
+
+```mermaid
 
     subgraph Trim_Data
     direction LR
