@@ -1,11 +1,11 @@
-## Diagram Index
+# Diagram Index
 
 - [Overview](#overview)
 - [Import File](#import-files)
 - [Trim Data](#trim-data)
 - [Export Results](#export-results)
 
-### Overview
+## Overview
 
 ```mermaid
 
@@ -67,7 +67,7 @@ graph TD
     end
 ```
 
-### Trim Data
+## Trim Data
 
 ```mermaid
 
@@ -133,10 +133,6 @@ graph TD
         format_as_string -->|"COM"| G["*<br>add_leading_zeros<br>len=10"]
     end
 
-    Import_GAGG_List ==> Trim_Data
-    Trim_Data ==> Format_Utility_Data
     find_account_column --> format_as_string
-
-
 
 ```
