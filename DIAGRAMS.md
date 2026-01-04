@@ -3,7 +3,6 @@
 - [Overview](#overview)
 - [Import File](#import-files)
 - [Trim Data](#trim-data)
-- [Export Results](#export-results)
 
 ## Overview
 
@@ -55,7 +54,7 @@ Setup ==> Initial_Processing ==> External_Data_Filters ==> Review
 
 graph TD
 
-    subgraph Import_GAGG_List
+    subgraph Import_GAGG_List["**Import GAGG List**"]
     direction LR
         select_utility_files --> open_file
         open_file --> copy_first_tab
@@ -75,7 +74,7 @@ graph TD
 
 graph TD
 
-    subgraph Trim_Data
+    subgraph Trim_Data["**Trim Data**"]
     direction LR
         AM --> combine_sheets
         AES --> combine_sheets
@@ -113,13 +112,13 @@ graph TD
         trim_FE["FE_delete_first_column<br>FE_delete_second_row"]
     end
 
-    subgraph Format_Utility_Data
+    subgraph Format_Utility_Data["**Format Utility Data**"]
     direction LR
         remove_tabs_from_headers --> find_account_column
     end
 
-    subgraph Format_Account_Numbers
-    direction LR
+    subgraph Format_Account_Numbers["**Format Account Numbers**"]
+    %%direction LR
         format_as_string -->|"FE"| A["080*<br>add_leading_zeros<br>len=20"]
         format_as_string -->|"OP"| B["001400607*<br>add_leading_zeros<br>len=17"]
         format_as_string -->|"CS"| C["000406210*<br>add_leading_zeros<br>len=17"]
@@ -137,7 +136,7 @@ graph TD
         G--> dedupe_accounts
     end
 
-    Trim_Data --> Format_Utility_Data
-    find_account_column --> format_as_string
+    Trim_Data ==> Format_Utility_Data
+    Format_Utility_Data ==> Format_Account_Numbers
 
 ```
