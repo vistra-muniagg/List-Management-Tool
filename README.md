@@ -9,6 +9,7 @@ There are many special conditions and logic features built in for each EDC and M
 This is intended to be a summary suitable for management and new users.
 There is a master copy of this tool saved in Sharepoint, and each mailing creates a copy in its resepective folder, containing the relevant data for that community.
 Detailed technical documentation can be found [here] <!-- [here] (TECHNICAL_DOC.md) -->
+Process diagrams can be found [here] <!-- (DIAGRAMS.md) -->
 
 ## Definitions
 `Waterfall` - the copy of this tool containing the pertinent data for a mailing. Also contains pivot tables and summary statistics about the mailing.\
