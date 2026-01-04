@@ -135,6 +135,7 @@ graph TD
         format_as_string -->|"COM"| G["*<br>add_leading_zeros<br>len=10"]
     end
 
+    Trim_Data --> Format_Utility_Data
     find_account_column --> format_as_string
 
 ```
