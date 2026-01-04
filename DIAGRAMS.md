@@ -1,3 +1,12 @@
+## Diagram Index
+
+- [Overview](#overview)
+- [Import File](#import-files)
+- [Trim Data](#trim-data)
+- [Export Results](#export-results)
+
+### Overview
+
 ```mermaid
 
 flowchart TB
@@ -39,6 +48,8 @@ end
 Setup ==> Initial_Processing ==> External_Data_Filters ==> Review
 
 ```
+### Import Files
+
 ```mermaid
 
 graph TD
@@ -54,6 +65,8 @@ graph TD
         copy_second_tab --> paste_data
         paste_data -->|"loop for each file"| open_file
     end
+
+### Trim Data
 
     subgraph Trim_Data
     direction LR
