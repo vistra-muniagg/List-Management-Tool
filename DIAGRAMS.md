@@ -39,12 +39,70 @@ end
 Setup ==> Initial_Processing ==> External_Data_Filters ==> Review
 
 ```
-
 ```mermaid
 
-graph
-direction LR
+graph TD
 
-Initialize["<b>Initialize</b>"]
+    subgraph Import_GAGG_List
+    direction LR
+        select_utility_files --> open_file
+        open_file --> copy_first_tab
+        copy_first_tab --> paste_data
+        copy_first_tab -->|"FE only"| copy_mail_addresses
+        copy_first_tab -->|"AM only"| copy_second_tab
+        copy_mail_addresses --> paste_data
+        copy_second_tab --> paste_data
+        paste_data -->|"loop for each file"| open_file
+    end
+
+    subgraph Trim_Data
+    direction LR
+        AM-->combine_sheets
+        AES-->combine_sheets
+        AEP-->combine_sheets
+        COM-->combine_sheets
+        DUKE-->combine_sheets
+        FE-->combine_sheets
+    end
+
+    subgraph AEP
+    direction LR
+        AEP_delete_first_col
+        AEP_delete_last_row
+        AEP_delete_second_row
+        AEP_delete_empty_cols
+    end
+
+    subgraph AES
+    direction LR
+        AES_delete_first_10_rows
+    end
+
+    subgraph AM
+    direction LR
+        AM_delete_first_10_rows
+        AM_unmerge_columns
+    end
+
+    subgraph COM
+    direction LR
+        COM_do_nothing
+    end
+
+    subgraph DUKE
+    direction LR
+        DUKE_do_nothing
+    end
+
+    subgraph FE
+    direction LR
+        FE_delete_first_column
+        FE_delete_second_row
+    end
+
+    Import_GAGG_List --> Trim_Data
+    
+
+```
 
 ```
