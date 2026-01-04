@@ -48,7 +48,8 @@ end
 Setup ==> Initial_Processing ==> External_Data_Filters ==> Review
 
 ```
-### Import Files
+
+## Import Files
 
 ```mermaid
 
@@ -63,7 +64,8 @@ graph TD
         copy_first_tab -->|"AM only"| copy_second_tab
         copy_mail_addresses --> paste_data
         copy_second_tab --> paste_data
-        paste_data -->|"loop for each file"| open_file
+        close_file -->|"loop for each file"| open_file
+        paste_data --> close_file
     end
 ```
 
@@ -75,53 +77,45 @@ graph TD
 
     subgraph Trim_Data
     direction LR
-        AM-->combine_sheets
-        AES-->combine_sheets
-        AEP-->combine_sheets
-        COM-->combine_sheets
-        DUKE-->combine_sheets
-        FE-->combine_sheets
+        AM --> combine_sheets
+        AES --> combine_sheets
+        AEP --> combine_sheets
+        %%COM --> combine_sheets
+        %%DUKE --> combine_sheets
+        FE --> combine_sheets
+        %%AM---AEP---AES---COM---DUKE---FE
+        new_tab -->|"AM"| AM
+        new_tab -->|"AEP"| AEP
+        new_tab -->|"AES"| AES
+        new_tab -->|"COM (do nothing)"| combine_sheets
+        new_tab -->|"DUKE (do nothing)"| combine_sheets
+        new_tab -->|"FE"| FE
+
     end
 
-    subgraph AEP
+    subgraph AEP[" "]
     direction LR
-        AEP_delete_first_col
-        AEP_delete_last_row
-        AEP_delete_second_row
-        AEP_delete_empty_cols
+        trim_AEP["AEP_delete_first_col<br>AEP_delete_last_row<br>AEP_delete_second_row<br>AEP_delete_empty_cols"]
     end
 
-    subgraph AES
+    subgraph AES[" "]
     direction LR
-        AES_delete_first_10_rows
+        trim_AES["AES_delete_first_10_rows"]
     end
 
-    subgraph AM
+    subgraph AM[" "]
     direction LR
-        AM_delete_first_10_rows
-        AM_unmerge_columns
+        trim_AM["AM_delete_first_10_rows<br>AM_unmerge_columns"]
     end
 
-    subgraph COM
+    subgraph FE[" "]
     direction LR
-        COM_do_nothing
-    end
-
-    subgraph DUKE
-    direction LR
-        DUKE_do_nothing
-    end
-
-    subgraph FE
-    direction LR
-        FE_delete_first_column
-        FE_delete_second_row
+        trim_FE["FE_delete_first_column<br>FE_delete_second_row"]
     end
 
     subgraph Format_Utility_Data
     direction LR
         remove_tabs_from_headers --> find_account_column
-        Format_Account_Numbers --> dedupe_accounts
     end
 
     subgraph Format_Account_Numbers
@@ -133,16 +127,17 @@ graph TD
         format_as_string -->|"DUKE"| E["[#x12]Z[#x9]<br>add_leading_zeros<br>len=22"]
         format_as_string -->|"AM"| F["*<br>add_leading_zeros<br>len=10"]
         format_as_string -->|"COM"| G["*<br>add_leading_zeros<br>len=10"]
+        %%A---B---C---D---E---F---G
+        A--> dedupe_accounts
+        B--> dedupe_accounts
+        C--> dedupe_accounts
+        D--> dedupe_accounts
+        E--> dedupe_accounts
+        F--> dedupe_accounts
+        G--> dedupe_accounts
     end
 
     Trim_Data --> Format_Utility_Data
     find_account_column --> format_as_string
-
-```
-
-```mermaid
-
-graph TD
-
 
 ```
