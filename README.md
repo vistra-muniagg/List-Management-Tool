@@ -175,7 +175,7 @@ The possible files created and saved in the community mailing folder include the
 |SAS ID|text|subaccountserviceid for renewal accounts|
 |LP Premise Mismatch|Y/N|if premise in LP does not match gagg list|
 |Address Source|text|most recent source of address, VISTRA for mismatch account, GAGG for all else|
-|COMMUNITY|text|commnuity name|
+|Community|text|commnuity name|
 |Mapping Result|text|whether account maps in or out of commnuity|
 |Community Mapped Into|text|geographic area account service address maps in to|
 |Eligible Before Mapping|Y/N|whether or not account was eligible before mapping results were applied|
