@@ -2,6 +2,18 @@
 
 &copy; 2025 Andrew Rodgers
 
+## Table of Contents
+1. [About](#about)
+2. [Definitions](#definitions)
+3. [Utilities](#utilities)
+4. [Mailing Types](#mailing_types)
+5. [Using The Tool](#using_the_tool)
+6. [Special Cases](#special_cases)
+7. [Filter Tab Columns](#filter_tab_columns)
+8. [Eligibility Filter Order](#eligibility_filter_order)
+9. [Peer Review Checklist](#peer_review_checklist)
+10. [Known Issues](#known_issues)
+
 ## About
 
 This tool is used to determine eligibility for accounts on a list for a specified utility `EDC` and mailing type `MailType` using data from the file(s) provided, external data, and manual input to determine the list of eligible accounts.
