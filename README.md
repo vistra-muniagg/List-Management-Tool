@@ -50,7 +50,7 @@ There are currently 9 utilites (7 in OH + 2 in IL) supported.
   * Commonwealth Edison `COM`
     
 ## Mailing Types
-There are currently 4 different types of mailing supported.\
+There are currently 4 different types of mailing supported.
 
 **Contract Renewal + Resweep** `CR`\
   Use a list of currently active customers from an expiring contract along with a utility list to enroll those currently active customers on a new contract, as well as enroll newly eligible customers from the utility list
@@ -103,7 +103,7 @@ All required files must be imported before proceeding to the next step.
 
 ### 2. Normalize Data
 After all required files have been imported, the utility data (if present) is transferred to the `Filter Tab`, which contains all the rows from the utility file, but the columns are standardized.
-This enables us to easily read data from every utility the exact same way. Details about the various columns can be found [here](#filter-tab).
+This enables us to easily read data from every utility the exact same way. Details about the various columns can be found [here](#filter-tab-columns).
 If a field is not provided on the utility list, it is marked with the standard `-` to denote an empty cell.
 If any lists are applcable besides the utility list, those records are checked against the existing list and any mismatches are added, populating any fields that are available on the list.
 
