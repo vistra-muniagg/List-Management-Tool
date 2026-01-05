@@ -151,7 +151,54 @@ The possible files created and saved in the community mailing folder include the
 ## Special Cases
 
 ## Filter Tab Columns
-
+|Column Name|Data Type|Description|
+|-------|---------|---------|
+|Account Number|string|duh|
+|Status|text|label reflecting the specific eligibility of an account|
+|Eligible Opt-Out|Y/N|whether or not account is eligible for Opt-Out mailing|
+|Mail Category|text|New enrollemnt (NEW) or price change (REN)|
+|On GAGG List|Y/N|duh|
+|On Active List|Y/N|duh|
+|Active List Mismatch|Y/N|active list account not present on gagg list|
+|SAS ID|text|subaccountserviceid for renewal accounts|
+|LP Premise Mismatch|Y/N|if premise in LP does not match gagg list|
+|Address Source|text|most recent source of address, VISTRA for mismatch account, GAGG for all else|
+|COMMUNITY|text|commnuity name|
+|Mapping Result|text|whether account maps in or out of commnuity|
+|Community Mapped Into|text|geographic area account service address maps in to|
+|Eligible Before Mapping|Y/N|whether or not account was eligible before mapping results were applied|
+|Mapping Notes|text|any notes from the mapping process about the account disposition|
+|Hourly Pricing|Y/N|IL only, mirrors the hourly pricing flag from the gagg list|
+|RTP|Y/N|IL only, mirrors the real time pricing flag from the gagg list|
+|BGS Hold|Y/N|IL only, mirrors the BGS Hold flag from the gagg list|
+|Commnuity Solar|Y/N|IL only, mirrors the Community Solar flag from the gagg list|
+|Free Service|Y/N|IL only, mirrors the Free Service flag from the gagg list|
+|PIPP|Y/N|OH only, mirrors the PIPP flag from the gagg list|
+|Mercantile|Y/N|OH only, mirrors the Mercantile flag from the gagg list|
+|Usage Months|number|count of monthly usage data present on the gagg list|
+|Actual Usage|number|real sum of monthly usage from the gagg list|
+|Estimated Usage|number|annualized usage if any months have no usage data present|
+|Shopping|Y/N|mirrors the Shopping flag on the gagg list|
+|Arrears|Y/N|mirrors the Arrears flag on the gagg list|
+|National Chain|Y/N|only Y for a commercial account mailing to Spokane, WA|
+|Do Not Agg|Y/N|only Y if the account is present on the PUCO DNA list|
+|Opt In Eligible|Y/N|whether or not account is eligible for Opt-In mailing|
+|LP Contracts Query|text|describes the status of the account in LP|
+|Recent Contract|text|most recent community contract id the account has activity on|
+|Contract Start Date|date|most recent start date on the most recent contract id for the account|
+|Customer Name|text|clean version of the account name|
+|Service Address|text|clean version of the account service addres|
+|Service City|text|clean version of the account service city|
+|Service State|text|clean version of the account service state|
+|Service Zip|text|clean version of the account service zip code|
+|Mail Address|text|clean version of the account mailing address|
+|Mail City|text|clean version of the account mailing city|
+|Mail State|text|clean version of the account mailing state|
+|Mail Zip|text|clean version of the account mailing zip code|
+|Phone|number|account phone number if present|
+|Email|text|account email address if present|
+|Customer Class|text|Residential or Commercial based on gagg list rate code or LP premise|
+|Read Cycle|number|detected read cycle from the gagg list|
 ## Eligibility Filter Order
 
 ## Peer Review Checklist
