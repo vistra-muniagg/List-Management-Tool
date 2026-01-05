@@ -6,13 +6,13 @@
 1. [About](#about)
 2. [Definitions](#definitions)
 3. [Utilities](#utilities)
-4. [Mailing Types](#mailing_types)
-5. [Using The Tool](#using_the_tool)
-6. [Special Cases](#special_cases)
-7. [Filter Tab Columns](#filter_tab_columns)
-8. [Eligibility Filter Order](#eligibility_filter_order)
-9. [Peer Review Checklist](#peer_review_checklist)
-10. [Known Issues](#known_issues)
+4. [Mailing Types](#mailing-types)
+5. [Using The Tool](#using-the-tool)
+6. [Special Cases](#special-cases)
+7. [Filter Tab Columns](#filter-tab-columns)
+8. [Eligibility Filter Order](#eligibility-filter-order)
+9. [Peer Review Checklist](#peer-review-checklist)
+10. [Known Issues](#known-issues)
 
 ## About
 
