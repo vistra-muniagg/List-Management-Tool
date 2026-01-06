@@ -119,13 +119,13 @@ graph TD
 
     subgraph Format_Account_Numbers["**Format Account Numbers**"]
     %%direction LR
-        format_as_string -->|"FE"| A["080*<br>add_leading_zeros<br>len=20"]
-        format_as_string -->|"OP"| B["001400607*<br>add_leading_zeros<br>len=17"]
-        format_as_string -->|"CS"| C["000406210*<br>add_leading_zeros<br>len=17"]
-        format_as_string -->|"AES"| D["080*<br>add_leading_zeros<br>len=23"]
-        format_as_string -->|"DUKE"| E["[#x12]Z[#x9]<br>add_leading_zeros<br>len=22"]
-        format_as_string -->|"AM"| F["*<br>add_leading_zeros<br>len=10"]
-        format_as_string -->|"COM"| G["*<br>add_leading_zeros<br>len=10"]
+        format_as_string -->|"FE"| A["080*<br>len=20"]
+        format_as_string -->|"OP"| B["001400607*<br>len=17"]
+        format_as_string -->|"CS"| C["000406210*<br>len=17"]
+        format_as_string -->|"AES"| D["080*<br>len=23"]
+        format_as_string -->|"DUKE"| E["[#x12]Z[#x9]<br>len=22"]
+        format_as_string -->|"AM"| F["*<br>len=10"]
+        format_as_string -->|"COM"| G["*<br>len=10"]
         %%A---B---C---D---E---F---G
         A--> dedupe_accounts
         B--> dedupe_accounts
