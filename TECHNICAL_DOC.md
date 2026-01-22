@@ -43,24 +43,24 @@ The tool's current functions revolve around the use of custom type objects for v
 |D5_mapping | import and process mapping data|
 |D6_misc | extra specialized processes done after filtering|
 |E1_review_data | sanity checks data for anything that might cause an upload error in LandPower|
-|E2_LP_upload_tab | create the|
-|E3_drop_at_renewal | |
-|E4_mail_list | |
-|E5_opt_in_list | |
-|E6_emails | |
-|E7_export | |
-|F1_helpers | |
-|F2_old_helpers | |
-|F3_data_helpers | |
-|F4_fso_helpers | |
-|F5_array_helpers | |
-|G1_snawflake_api | |
-|G2_github_api | |
-|G3_windows_api | |
-|H1_errors | |
-|H2_testing | |
-|H3_sandbox | |
-|H4_JsonConverter | |
+|E2_LP_upload_tab | create the upload file for LandPower|
+|E3_drop_at_renewal | create file for any currently active accounts not eligible for renewal|
+|E4_mail_list | create the mail list file for the printer|
+|E5_opt_in_list | create the opt-in mail list file|
+|E6_emails | create email templates |
+|E7_export | export created files for tracking and later use|
+|F1_helpers | smaller helper functions for ease of operation|
+|F2_old_helpers | legacy helper functions for outdated OneDrive configurations|
+|F3_data_helpers | functions to extract a data row or column|
+|F4_fso_helpers | functions that integrate with the folder structure|
+|F5_array_helpers | functions and methods that deal with arrays|
+|G1_snowflake_api | UNUSED - code for integrating the Snowflake API to automate queries|
+|G2_github_api | UNUSED - code that uses the GitHub API to check macro version number|
+|G3_windows_api | functions from the windows API to add functionality to Excel|
+|H1_errors | UNUSED - code for custom error messages and error tracking|
+|H2_testing | code for testing all possible combinations of EDC + mail type|
+|H3_sandbox | code that still needs sorted to an appropriate module|
+|H4_JsonConverter | JSON text converter|
 
 ## Detailed Module References
 
