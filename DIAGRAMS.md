@@ -39,7 +39,7 @@ Export_Files["<b>Export Files</b>"]
 
 subgraph Setup["<b>Setup</b>"]
 direction LR
-    Initialize["<b>Initialize Settings</b>"] --> Import_Files["<b>Import Files</b>"]
+    Initialize["<b>Initialize Settings</b>"] --> Import_Files["<b>Import Files</b>"] --> Trim_Data["<b>Trim Data</b>"]
 end
 
 subgraph Initial_Processing["<b>Initial Processing</b>"]
@@ -204,5 +204,36 @@ graph TD
         create_filter_tab["<b>Create Filter Tab</b>"] --> check_active_matches["<b>Check Active List Matches</b><br>-highlight mismatches<br>-fix LP premise errors"]
         check_active_matches --> standardize_data["<b>Standardize Data</b><br>-Populate Columns as Y/N<br>-clean customer name<br>-clean service address<br>-clean mail address<br>-summarize usage"]
     end
+
+```
+## Filter Data
+
+```mermaid
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "12px",
+    "fontFamily": "Segoe UI",
+    "primaryColor": "#eef6ff",          %% node fill
+    "primaryBorderColor": "#1e40af",    %% node border
+    "primaryTextColor": "#0f172a",      %% node text
+    "lineColor": "#1e40af"
+  }
+}}%%
+
+graph TD
+
+    subgraph Filter_Data["<b>Filter Data</b>"]
+    direction LR
+        PIPP["<b>PIPP</b>"]
+        State_Rules["<b>State Rules</b><br><br><b>OH</b><br>-Mercantile<br><b><br>IL</b><br>-RTP<br>-BGS Hold<br>-Free Service<br>-Hourly Pricing<br>-Community Solar<br>"]
+        Usage["<b>Usage</b><br><br><b>OH</b><br>-Commercial > 700,000 kWh<br><br><b>IL</b><br>-Commercial > 15,000 kWh"]
+        Shopping["<b>Shopping</b>"]
+        Arrears["<b>In Arrears</b>"]
+        National_Chains["<b>National Chains</b><br>-Commercial Account<br>AND<br>Mailing address is Spokane, WA"]
+        PIPP --> State_Rules --> Usage --> Shopping --> Arrears --> National_Chains
+    end
+
 
 ```
