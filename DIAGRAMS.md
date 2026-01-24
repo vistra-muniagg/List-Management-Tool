@@ -3,6 +3,7 @@
 - [Overview](#overview)
 - [Import File](#import-files)
 - [Trim Data](#trim-data)
+- [Preprocess Data](#preprocess-data)
 
 ## Overview
 
@@ -31,7 +32,7 @@ Preprocess_List["<b>Preprocess_List</b><br>-create_filter_tab<br>-create_mapping
 Filter_List["<b>Filter_List</b><br>-remove_duplicates<br>-pipp<br>-state_rules<br>-usage<br>-shopping<br>-arrears<br>-national_chains"]
 PUCO_Do_Not_Agg["<b>PUCO_Do_Not_Agg</b><br>-account_number_match<br>-service_address_match<br>-manual_name_comparison"]
 Contracts_Query["<b>Contracts_Query</b><br>-import_snowflake_file<br>-dedupe_query_results<br>-active_accounts<br>-previous_opt_outs"]
-Mapping["<b>Mapping</b><br>-import mapping results"]
+Mapping["<b>Mapping</b>"]
 Misc_Filters["<b>Miscellaneous Filters</b><br>-DUKE sibling accounts<br>-LP Premise Mismatch"]
 Review_Data["<b>Review Data</b>"]
 Export_Files["<b>Export Files</b>"]
@@ -200,11 +201,8 @@ graph TD
 
     subgraph Preprocess_Data["<b>Preprocess Data</b>"]
     direction LR
-        create_filter_tab["<b>Create Filter Tab</b>"] --> populate_filter_tab["<b>Populate Filter Tab</b>"]
+        create_filter_tab["<b>Create Filter Tab</b>"] --> check_active_matches["<b>Check Active List Matches</b><br>-highlight mismatches<br>-fix LP premise errors"]
+        check_active_matches --> standardize_data["<b>Standardize Data</b><br>-Populate Columns as Y/N<br>-clean customer name<br>-clean service address<br>-clean mail address<br>-summarize usage"]
     end
 
-    subgraph populate_filter_tab["<b>Populate Filter Tab</b>"]
-    direction LR
-        standardize_data["<b>Standardize Data</b><br>-Populate Columns as Y/N<br>-clean customer name<br>-clean service address<br>-clean mail address<br>-summarize usage"]
-    end
 ```
