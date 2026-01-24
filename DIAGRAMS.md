@@ -92,25 +92,7 @@ graph TD
     end
 ```
 
-## Preprocess Data
-
-```mermaid
-
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "fontSize": "12px",
-    "fontFamily": "Segoe UI",
-    "primaryColor": "#eef6ff",          %% node fill
-    "primaryBorderColor": "#1e40af",    %% node border
-    "primaryTextColor": "#0f172a",      %% node text
-    "lineColor": "#1e40af"
-  }
-}}%%
-
-'''
-
-### Trim Data
+## Trim Data
 
 ```mermaid
 
@@ -196,4 +178,33 @@ graph TD
     Trim_Data ==> Format_Utility_Data
     Format_Utility_Data ==> Format_Account_Numbers
 
+```
+
+## Preprocess Data
+
+```mermaid
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "12px",
+    "fontFamily": "Segoe UI",
+    "primaryColor": "#eef6ff",          %% node fill
+    "primaryBorderColor": "#1e40af",    %% node border
+    "primaryTextColor": "#0f172a",      %% node text
+    "lineColor": "#1e40af"
+  }
+}}%%
+
+graph TD
+
+    subgraph Preprocess_Data["<b>Preprocess Data</b>"]
+    direction LR
+        create_filter_tab["<b>Create Filter Tab</b>"] --> populate_filter_tab["<b>Populate Filter Tab</b>"]
+    end
+
+    subgraph populate_filter_tab["<b>Populate Filter Tab</b>"]
+    direction LR
+        standardize_data["<b>Standardize Data</b><br>-Populate Columns as Y/N<br>-clean customer name<br>-clean service address<br>-clean mail address<br>-summarize usage"]
+    end
 ```
