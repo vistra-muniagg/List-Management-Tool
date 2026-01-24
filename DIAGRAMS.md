@@ -92,7 +92,25 @@ graph TD
     end
 ```
 
-## Trim Data
+## Preprocess Data
+
+```mermaid
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "12px",
+    "fontFamily": "Segoe UI",
+    "primaryColor": "#eef6ff",          %% node fill
+    "primaryBorderColor": "#1e40af",    %% node border
+    "primaryTextColor": "#0f172a",      %% node text
+    "lineColor": "#1e40af"
+  }
+}}%%
+
+'''
+
+### Trim Data
 
 ```mermaid
 
