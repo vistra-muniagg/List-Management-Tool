@@ -4,6 +4,7 @@
 - [Import File](#import-files)
 - [Trim Data](#trim-data)
 - [Preprocess Data](#preprocess-data)
+- [Filter Data](#filter-data)
 
 ## Overview
 
@@ -30,7 +31,7 @@ Initialize["<b>Initialize</b><br>-define_macro_settings<br>-define_EDC<br>-defin
 Import_Files["<b>Import_Files</b><br>-import_gagg_list<br>-import_active_list<br>-import_supplier_list<br>-trim_data"]
 Preprocess_List["<b>Preprocess_List</b><br>-create_filter_tab<br>-create_mapping_file<br>-populate_filter_tab"]
 Filter_List["<b>Filter_List</b><br>-remove_duplicates<br>-pipp<br>-state_rules<br>-usage<br>-shopping<br>-arrears<br>-national_chains"]
-PUCO_Do_Not_Agg["<b>PUCO_Do_Not_Agg</b><br>-account_number_match<br>-service_address_match<br>-manual_name_comparison"]
+PUCO_Do_Not_Agg["<b>PUCO Do Not Agg</b><br>-account_number_match<br>-service_address_match<br>-manual_name_comparison"]
 Contracts_Query["<b>Contracts_Query</b><br>-import_snowflake_file<br>-dedupe_query_results<br>-active_accounts<br>-previous_opt_outs"]
 Mapping["<b>Mapping</b>"]
 Misc_Filters["<b>Miscellaneous Filters</b><br>-DUKE sibling accounts<br>-LP Premise Mismatch"]
@@ -49,7 +50,7 @@ end
 
 subgraph External_Data_Filters["<b>External Data Filters</b>"]
 direction LR
-    PUCO_Do_Not_Agg["<b>PUCO Don Not Agg List</b>"] --> Contracts_Query["<b>Contracts Query</b>"] --> Mapping --> Misc_Filters["<b>Miscellaneous Filters</b>"]
+    PUCO_Do_Not_Agg["<b>PUCO Do Not Agg List</b>"] --> Contracts_Query["<b>Contracts Query</b>"] --> Mapping --> Misc_Filters["<b>Miscellaneous Filters</b>"]
 end
 
 subgraph Review["<b>Review</b>"]
@@ -231,9 +232,36 @@ graph TD
         Usage["<b>Usage</b><br><br><b>OH</b><br>-Commercial > 700,000 kWh<br><br><b>IL</b><br>-Commercial > 15,000 kWh"]
         Shopping["<b>Shopping</b>"]
         Arrears["<b>In Arrears</b>"]
-        National_Chains["<b>National Chains</b><br>-Commercial Account<br>AND<br>Mailing address is Spokane, WA"]
+        National_Chains["<b>National Chains</b><br>-Commercial Account<br>AND<br>-Mails to Spokane, WA"]
         PIPP --> State_Rules --> Usage --> Shopping --> Arrears --> National_Chains
     end
 
+```
+
+## PUCO Do Not Agg List (OH Only)
+
+```mermaid
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "12px",
+    "fontFamily": "Segoe UI",
+    "primaryColor": "#eef6ff",          %% node fill
+    "primaryBorderColor": "#1e40af",    %% node border
+    "primaryTextColor": "#0f172a",      %% node text
+    "lineColor": "#1e40af"
+  }
+}}%%
+
+graph TD
+
+    subgraph DNA_search["<b>Search DNA List</b>"]
+    direction LR
+        account_match["<b>Account Match</b><br>-Exact Account Match"]
+        address_match["<b>Address Wildcard Match</b><br>-First 12 characters match"]
+        manual_review["<b>Manual Review Of Matches</b><br>-User reviews matches"]
+        account_match --> address_match --> manual_review
+    end
 
 ```
