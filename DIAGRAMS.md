@@ -31,32 +31,32 @@ Preprocess_List["<b>Preprocess_List</b><br>-create_filter_tab<br>-create_mapping
 Filter_List["<b>Filter_List</b><br>-remove_duplicates<br>-pipp<br>-state_rules<br>-usage<br>-shopping<br>-arrears<br>-national_chains"]
 PUCO_Do_Not_Agg["<b>PUCO_Do_Not_Agg</b><br>-account_number_match<br>-service_address_match<br>-manual_name_comparison"]
 Contracts_Query["<b>Contracts_Query</b><br>-import_snowflake_file<br>-dedupe_query_results<br>-active_accounts<br>-previous_opt_outs"]
-Mapping["<b>Mapping</b><br>-import_mapping_results"]
-Misc_Filters["<b>Misc_Filters</b><br>-DUKE_sibling_accounts<br>-LP_premise_mismatch"]
-Review_Data["<b>Review_Data</b>"]
-Export_Files["<b>Export_Files</b>"]
+Mapping["<b>Mapping</b><br>-import mapping results"]
+Misc_Filters["<b>Miscellaneous Filters</b><br>-DUKE sibling accounts<br>-LP Premise Mismatch"]
+Review_Data["<b>Review Data</b>"]
+Export_Files["<b>Export Files</b>"]
 
 subgraph Setup["<b>Setup</b>"]
 direction LR
-    Initialize --> Import_Files
+    Initialize["<b>Initialize Settings</b>"] --> Import_Files["<b>Import Files</b>"]
 end
 
-subgraph Initial_Processing["<b>Initial_Processing</b>"]
+subgraph Initial_Processing["<b>Initial Processing</b>"]
 direction LR
-    Preprocess_List --> Filter_List
+    Preprocess_List["<b>Preprocess List</b>"] --> Filter_List["<b>Filter List</b>"]
 end
 
-subgraph External_Data_Filters["<b>External_Data_Filters</b>"]
+subgraph External_Data_Filters["<b>External Data Filters</b>"]
 direction LR
-    PUCO_Do_Not_Agg --> Contracts_Query --> Mapping --> Misc_Filters
+    PUCO_Do_Not_Agg["<b>PUCO Don Not Agg List</b>"] --> Contracts_Query["<b>Contracts Query</b>"] --> Mapping --> Misc_Filters["<b>Miscellaneous Filters</b>"]
 end
 
 subgraph Review["<b>Review</b>"]
 direction LR
-    Review_Data --> Export_Files
+    Review_Data["<b>Review Data</b>"] --> Export_Files["<b>Export Files</b>"]
 end
 
-Setup ==> Initial_Processing ==> External_Data_Filters ==> Review
+Setup ==> Initial_Processing["<b>Initial Processing</b>"] ==> External_Data_Filters["<b>External Data Filters</b>"] ==> Review
 
 ```
 
