@@ -260,7 +260,7 @@ graph TD
     direction LR
         account_match["<b>Account Match</b><br>-Exact Account Match"]
         address_match["<b>Address Wildcard Match</b><br>-First 12 characters match"]
-        manual_review["<b>Manual Review Of Matches</b><br>-User reviews matches"]
+        manual_review["<b>Manual Review Of Matches</b><br>-User review for name and address match"]
         account_match --> address_match --> manual_review
     end
 
