@@ -265,3 +265,32 @@ graph TD
     end
 
 ```
+
+## Contracts Query (Snowflake)
+
+```mermaid
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "12px",
+    "fontFamily": "Segoe UI",
+    "primaryColor": "#eef6ff",          %% node fill
+    "primaryBorderColor": "#1e40af",    %% node border
+    "primaryTextColor": "#0f172a",      %% node text
+    "lineColor": "#1e40af"
+  }
+}}%%
+
+graph TD
+
+    subgraph contracts["<b>Query LandPower</b>"]
+    direction LR
+        query["<b>Account Match</b><br>-Exact Account Match"]
+        dedupe["<b>Dedupe</b><br>-Get only most recent activity for account"]
+        address_match["<b>Address Wildcard Match</b><br>-First 12 characters match"]
+        manual_review["<b>Manual Review Of Matches</b><br>-Name match<br>-Address match"]
+        account_match --> address_match --> manual_review
+    end
+
+```
