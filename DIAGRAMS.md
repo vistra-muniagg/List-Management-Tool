@@ -286,10 +286,9 @@ graph TD
 
     subgraph contracts["<b>Query LandPower</b>"]
     direction LR
-        query["<b>Account Match</b><br>-Exact Account Match"]
+        query["<b>Account Match</b><br>-Account Match In LP"]
         dedupe["<b>Dedupe</b><br>-Get only most recent activity for account"]
-        address_match["<b>Address Wildcard Match</b><br>-First 12 characters match"]
-        query --> dedupe --> manual_review
+        query --> dedupe --> LP_status
     end
 
     subgraph LP_status["<b>LP Status</b>"]
