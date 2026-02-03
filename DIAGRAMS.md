@@ -5,6 +5,8 @@
 - [Trim Data](#trim-data)
 - [Preprocess Data](#preprocess-data)
 - [Filter Data](#filter-data)
+- [PUCO Do Not Agg List](#puco-dna)
+- [Contracts Query](#contracts-query)
 
 ## Overview
 
@@ -238,7 +240,7 @@ graph TD
 
 ```
 
-## PUCO Do Not Agg List (OH Only)
+## PUCO Do Not Agg List
 
 ```mermaid
 
@@ -266,7 +268,7 @@ graph TD
 
 ```
 
-## Contracts Query (Snowflake)
+## Contracts Query
 
 ```mermaid
 
