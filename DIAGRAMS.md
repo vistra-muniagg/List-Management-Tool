@@ -289,8 +289,15 @@ graph TD
         query["<b>Account Match</b><br>-Exact Account Match"]
         dedupe["<b>Dedupe</b><br>-Get only most recent activity for account"]
         address_match["<b>Address Wildcard Match</b><br>-First 12 characters match"]
-        manual_review["<b>Manual Review Of Matches</b><br>-Name match<br>-Address match"]
-        account_match --> address_match --> manual_review
+        query --> dedupe --> manual_review
+    end
+
+    subgraph LP_status["<b>LP Status</b>"]
+    direction LR
+        active["<b>Active In LP</b><br>-Active<br>-Drop Pending<br>-Processing<br>-Pending Activation"]
+        opt_out["<b>Previously Mailed</b><br>-Activity on current contract (SWP only)"]
+        inactive["<b>Inactive In LP</b><br>-Not Active<br>-AEP Recycled Account"]
+        active --> opt_out --> inactive
     end
 
 ```
