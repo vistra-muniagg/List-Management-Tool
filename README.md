@@ -20,8 +20,8 @@ This tool is used to determine eligibility for accounts on a list for a specifie
 There are many special conditions and logic features built in for each EDC and MailType, which will be summarized in a later section (see [Special Cases](#special-cases)).
 This is intended to be a summary suitable for management and new users.
 There is a master copy of this tool saved in Sharepoint, and each mailing creates a copy in its resepective folder, containing the relevant data for that community.
-Detailed technical documentation can be found [here] <!-- [here] (TECHNICAL_DOC.md) -->
-Process diagrams can be found [here] <!-- (DIAGRAMS.md) -->
+Detailed technical documentation can be found [here](TECHNICAL_DOC.md)
+Process diagrams can be found [here](DIAGRAMS.md)
 
 ## Definitions
 `Waterfall` - the copy of this tool containing the pertinent data for a mailing. Also contains pivot tables and summary statistics about the mailing.\
@@ -216,7 +216,8 @@ For any `Mail Type`, all sibling accounts will be assigned the same eligibility 
 |Customer Class|text|Residential or Commercial based on gagg list rate code or LP premise|
 |Read Cycle|number|detected read cycle from the gagg list|
 
-## Eligibility Filter Order [diagrams here](DIAGRAMS.md#filter-data)
+## Eligibility Filter Order
+[Process Diagrams](DIAGRAMS.md#filter-data)
 1. PIPP
 2. State Rules (OH or IL)
 3. Annual Usage
