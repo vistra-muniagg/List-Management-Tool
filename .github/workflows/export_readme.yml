@@ -1,0 +1,43 @@
+name: Export Markdown to HTML
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**/*.md"
+
+jobs:
+  export-md:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Install Mermaid CLI
+        run: |
+          npm install -g @mermaid-js/mermaid-cli
+
+      - name: Export Markdown to HTML
+        run: |
+          mkdir -p exported-html
+          find . -name "*.md" ! -path "./.git/*" ! -path "./exported-html/*" | while read file; do
+            out="exported-html/$(basename "${file%.md}.html")"
+            pandoc "$file" \
+              --from gfm \
+              --to html \
+              --standalone \
+              --metadata title="$(basename "$file")" \
+              --output "$out"
+          done
+
+      - name: Upload HTML artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-html
+          path: exported-html
