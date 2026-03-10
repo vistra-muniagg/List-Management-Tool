@@ -216,7 +216,7 @@ For any `Mail Type`, all sibling accounts will be assigned the same eligibility 
 |Customer Class|text|Residential or Commercial based on gagg list rate code or LP premise|
 |Read Cycle|number|detected read cycle from the gagg list|
 
-## Eligibility Filter Order
+## Eligibility Filter Order ([diagrams if you like pictures](../filter-data.md)
 1. PIPP
 2. State Rules (OH or IL)
 3. Annual Usage
