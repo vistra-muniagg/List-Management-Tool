@@ -32,14 +32,19 @@ jobs:
               --metadata title="$(basename "$file")" \
               --output "$out"
           done
-
       - name: Inject Mermaid support
         run: |
           find exported-html -name "*.html" | while read f; do
-            sed -i '/<\/body>/i \
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>\
-<script>mermaid.initialize({ startOnLoad: true, theme: "default" });</script>' "$f"
+            printf '%s\n' \
+              '<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>' \
+              '<script>mermaid.initialize({ startOnLoad: true, theme: "default" });</script>' \
+            | sed -i '/<\/body>/r /dev/stdin' "$f"
           done
+
+
+
+
+
 
       - name: Upload HTML artifacts
         uses: actions/upload-artifact@v4
