@@ -1,4 +1,4 @@
-name: Export Markdown to HTML
+name: Export Markdown (GitHub Style)
 
 on:
   workflow_dispatch:
@@ -15,29 +15,34 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc
+        run: sudo apt-get install -y pandoc
 
-      - name: Install Mermaid CLI
-        run: |
-          npm install -g @mermaid-js/mermaid-cli
-
-      - name: Export Markdown to HTML
+      - name: Export Markdown to GitHub‑styled HTML
         run: |
           mkdir -p exported-html
-          find . -name "*.md" ! -path "./.git/*" ! -path "./exported-html/*" | while read file; do
-            out="exported-html/$(basename "${file%.md}.html")"
+          find . -name "*.md" ! -path "./.git/*" | while read file; do
+            out="exported-html/${file%.md}.html"
+            mkdir -p "$(dirname "$out")"
+
             pandoc "$file" \
               --from gfm \
               --to html \
               --standalone \
+              --css docs/assets/github.css \
               --metadata title="$(basename "$file")" \
               --output "$out"
+          done
+
+      - name: Inject Mermaid support
+        run: |
+          for f in exported-html/**/*.html; do
+            sed -i '/<\/body>/i \
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>\
+<script>mermaid.initialize({ startOnLoad: true, theme: "default" });</script>' "$f"
           done
 
       - name: Upload HTML artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: markdown-html
+          name: github-style-html
           path: exported-html
