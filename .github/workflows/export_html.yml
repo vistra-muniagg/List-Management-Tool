@@ -30,6 +30,7 @@ jobs:
               --standalone \
               --embed-resources \
               --css assets/github.css \
+              --metadata=body-class:markdown-body \
               --metadata title="$(basename "$file")" \
               --output "$out"
           done
