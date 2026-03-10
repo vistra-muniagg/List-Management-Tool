@@ -212,6 +212,9 @@ graph TD
 ```
 ## Filter Data
 
+<details open>
+<summary>Filter Data Flow</summary>
+
 ```mermaid
 
 %%{init: {
