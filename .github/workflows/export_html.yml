@@ -29,6 +29,7 @@ jobs:
               --to html \
               --standalone \
               --embed-resources \
+              --template assets/github-template.html \
               --css assets/github.css \
               --metadata=body-class:markdown-body \
               --metadata title="$(basename "$file")" \
