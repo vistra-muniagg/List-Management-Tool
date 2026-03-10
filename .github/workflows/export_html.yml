@@ -20,7 +20,7 @@ jobs:
       - name: Export Markdown to GitHub‑styled HTML
         run: |
           mkdir -p exported-html
-          find docs -name "*.md" | while read file; do
+          find . -name "*.md" | while read file; do
             out="exported-html/${file%.md}.html"
             mkdir -p "$(dirname "$out")"
 
