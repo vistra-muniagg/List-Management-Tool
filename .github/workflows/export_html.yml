@@ -28,6 +28,7 @@ jobs:
               --from gfm \
               --to html \
               --standalone \
+              --embed-resources \
               --css assets/github.css \
               --metadata title="$(basename "$file")" \
               --output "$out"
