@@ -164,7 +164,7 @@ The possible files created and saved in the community mailing folder include the
 
 ### 1. Duke Sibling Accounts
 Duke's system links multiple accounts at the same location as `sibling accounts`. These are defined to be accounts that share the first 12 digits of their 22-digit account numbers.
-For any `Mail Type`, all sibling accounts will be assigned the same eligibility for that mailing. If all sibling accounts are eligible through the rules described above, no change is made. Otherwise, if one or more sibling accounts is ineligible, then all sibling accounts on the current list will be marked as `Ineligble - Duke Sibling Account` and removed from the eligible population.
+For any `Mail Type`, all sibling accounts will be assigned the same eligibility for that mailing. If all sibling accounts are eligible through the rules described above, no change is made. Otherwise, if one or more sibling accounts is ineligible, then all sibling accounts on the current list will be marked as `Sibling Account (DUKE)` and removed from the eligible population.
 
 ## Filter Tab Columns
 |Column Name|Data Type|Description|
@@ -215,7 +215,17 @@ For any `Mail Type`, all sibling accounts will be assigned the same eligibility 
 |Email|text|account email address if present|
 |Customer Class|text|Residential or Commercial based on gagg list rate code or LP premise|
 |Read Cycle|number|detected read cycle from the gagg list|
+
 ## Eligibility Filter Order
+1. PIPP
+2. State Rules (OH or IL)
+3. Annual Usage
+4. Shopping
+5. In Arrears
+6. National Chains
+7. PUCO Do Not Aggregate List
+8. Contracts Query
+9. Mapping
 
 ## Peer Review Checklist
 
