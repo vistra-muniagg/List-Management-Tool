@@ -153,7 +153,7 @@ There is a [Peer Review Checklist](#peer-review-checklist) for the analyst doing
 When all items on the checklist are complete, the peer reivew analyst can click the `Export Files` button.
 This will create the upload file required for LandPower, as well as exporting a specially formatted Mail List, which will be sent to the printer after upload.
 In some cases, there will be additional files created.
-The possible files created and saved in the community mailing folder include the following,
+The possible files created and saved in the community mailing folder include the following -
 
 * Email to Printer
 * LandPower Upload Email
@@ -161,6 +161,10 @@ The possible files created and saved in the community mailing folder include the
 * Drops at Renewal List
 
 ## Special Cases
+
+### 1. Duke Sibling Accounts
+Duke's system links multiple accounts at the same location as `sibling accounts`. These are defined to be accounts that share the first 12 digits of their 22-digit account numbers.
+For any `Mail Type`, all sibling accounts will be assigned the same eligibility for that mailing. If all sibling accounts are eligible through the rules described above, no change is made. Otherwise, if one or more sibling accounts is ineligible, then all sibling accounts on the current list will be marked as `Ineligble - Duke Sibling Account` and removed from the eligible population.
 
 ## Filter Tab Columns
 |Column Name|Data Type|Description|
