@@ -84,7 +84,7 @@ Additionally, the user needs to use the dropdowns to select the appropriate `Uti
 Below those dropdowns is a place to enter the community name. This is the formal name of the community (City of Akron, Summmit County, etc.)
 
 ### 1. Import Files
-After the `Utility`, `Mail Type`, and `Community Name` have been provided, the `Import File` button will unlock and provide the appropriate options based on `Mail Type'.
+After the `Utility`, `Mail Type`, and `Community Name` have been provided, the `Import File` button will unlock and provide the appropriate options based on `Mail Type`.
 When a file is selected, it is automatically opened and the data is added to a separate worksheet.
 If the selection inclues more than one worksheet containing utility data, these are combined into a single sheet.
 All required files must be imported before proceeding to the next step.
