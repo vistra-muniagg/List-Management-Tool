@@ -88,8 +88,9 @@ After the `Utility`, `Mail Type`, and `Community Name` have been provided, the `
 When a file is selected, it is automatically opened and the data is added to a separate worksheet.
 If the selection inclues more than one worksheet containing utility data, these are combined into a single sheet.
 All required files must be imported before proceeding to the next step.
->[!Note]
->These files are aquired through different processes not described here.
+
+[!Note]
+These files are aquired through different processes not described here.
 
 * Contract Renewal `CR`
   *  Active Customer List (from LandPower)
