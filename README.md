@@ -90,6 +90,7 @@ If the selection inclues more than one worksheet containing utility data, these 
 All required files must be imported before proceeding to the next step.
 >[!Note]
 >These files are aquired through different processes not described here.
+
 * Contract Renewal `CR`
   *  Active Customer List (from LandPower)
   *  Utility List(s)
