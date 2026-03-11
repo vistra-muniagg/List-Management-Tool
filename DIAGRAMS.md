@@ -322,19 +322,11 @@ graph TD
 
 graph TD
 
-    subgraph contracts["<b>Query LandPower</b>"]
+    subgraph mapping["<b>Mapping</b>"]
     direction LR
-        query["<b>Account Match</b><br>-Account Match In LP"]
-        dedupe["<b>Dedupe</b><br>-Get only most recent activity for account"]
-        query --> dedupe --> LP_status
+        populate_mapping["<b>Create Mapping File</b>"] --> query_db["Check Mapping Database"] --> process_db_results["Process Database Matches"]
+        process_db_results --> map_remaining["Map Remaining Accounts"] --> no_results["Check No Results"]
     end
 
-    subgraph LP_status["<b>LP Status</b>"]
-    direction LR
-        active["<b>Active In LP</b><br>-Active<br>-Drop Pending<br>-Processing<br>-Pending Activation"]
-        opt_out["<b>Previously Mailed</b><br>-Activity on current contract (SWP only)"]
-        inactive["<b>Inactive In LP</b><br>-Not Active<br>-AEP Recycled Account"]
-        active --> opt_out --> inactive
-    end
 
 ```
