@@ -83,16 +83,16 @@ Setup ==> Initial_Processing["<b>Initial Processing</b>"] ==> External_Data_Filt
 
 graph TD
 
-    subgraph Import_GAGG_List["**Import GAGG List**"]
+    subgraph Import_GAGG_List["<b>Import GAGG List</b>"]
     direction LR
         select_utility_files --> open_file
         open_file --> copy_first_tab
         copy_first_tab --> paste_data
-        copy_first_tab -->|"**FE only**"| copy_mail_addresses
-        copy_first_tab -->|"**AM only**"| copy_second_tab
+        copy_first_tab -->|"<b>FE only</b>"| copy_mail_addresses
+        copy_first_tab -->|"<b>AM only</b>"| copy_second_tab
         copy_mail_addresses --> paste_data
         copy_second_tab --> paste_data
-        close_file -->|"**loop for each file**"| open_file
+        close_file -->|"<b>loop for each file</b>"| open_file
         paste_data --> close_file
     end
 ```
@@ -115,7 +115,7 @@ graph TD
 
 graph TD
 
-    subgraph Trim_Data["**Trim Data**"]
+    subgraph Trim_Data["<b>Trim Data</b>"]
     direction TB
         %%AM --> combine_sheets
         %%AES --> combine_sheets
@@ -124,14 +124,14 @@ graph TD
         %%DUKE --> combine_sheets
         %%FE --> combine_sheets
         %%AM---AEP---AES---COM---DUKE---FE
-        new_tab -->|"**AM**"| trim_AM["AM_delete_first_10_rows<br>AM_unmerge_columns"] --> combine_sheets
-        new_tab -->|"**AEP**"| trim_AEP["AEP_delete_first_col<br>AEP_delete_last_row<br>AEP_delete_second_row<br>AEP_delete_empty_cols"] --> combine_sheets
-        new_tab -->|"**AES**"| trim_AES["AES_delete_first_10_rows"] --> combine_sheets
-        new_tab -->|"**FE**"| trim_FE["FE_delete_first_column<br>FE_delete_second_row"] --> combine_sheets
-        %%new_tab -->|"**COM**"| no_action["do nothing"] --> combine_sheets
-        %%new_tab -->|"**DUKE**"| no_action["do nothing"] -->combine_sheets
-        new_tab -->|"**COM**"| combine_sheets
-        new_tab -->|"**DUKE**"| combine_sheets
+        new_tab -->|"<b>AM</b>"| trim_AM["AM_delete_first_10_rows<br>AM_unmerge_columns"] --> combine_sheets
+        new_tab -->|"<b>AEP</b>"| trim_AEP["AEP_delete_first_col<br>AEP_delete_last_row<br>AEP_delete_second_row<br>AEP_delete_empty_cols"] --> combine_sheets
+        new_tab -->|"<b>AES</b>"| trim_AES["AES_delete_first_10_rows"] --> combine_sheets
+        new_tab -->|"<b>FE</b>"| trim_FE["FE_delete_first_column<br>FE_delete_second_row"] --> combine_sheets
+        %%new_tab -->|"<b>COM</b>"| no_action["do nothing"] --> combine_sheets
+        %%new_tab -->|"<b>DUKE</b>"| no_action["do nothing"] -->combine_sheets
+        new_tab -->|"<b>COM</b>"| combine_sheets
+        new_tab -->|"<b>DUKE</b>"| combine_sheets
         
 
     end
@@ -156,20 +156,20 @@ graph TD
     %%    trim_FE["FE_delete_first_column<br>FE_delete_second_row"]
     %%end
 
-    subgraph Format_Utility_Data["**Format Utility Data**"]
+    subgraph Format_Utility_Data["<b>Format Utility Data</b>"]
     direction LR
         remove_tabs_from_headers --> find_account_column
     end
 
-    subgraph Format_Account_Numbers["**Format Account Numbers**"]
+    subgraph Format_Account_Numbers["<b>Format Account Numbers</b>"]
     direction TB
-        format_as_string -->|"**OE/TE/CEI**"| A["080*<br>len=20"]
-        format_as_string -->|"**OP**"| B["001400607*<br>len=17"]
-        format_as_string -->|"**CS**"| C["000406210*<br>len=17"]
-        format_as_string -->|"**AES**"| D["080*<br>len=23"]
-        format_as_string -->|"**DUKE**"| E["[#x12]Z[#x9]<br>len=22"]
-        format_as_string -->|"**AM**"| F["*(no pattern)<br>len=10"]
-        format_as_string -->|"**COM**"| G["*(no pattern)<br>len=10"]
+        format_as_string -->|"<b>OE/TE/CEI</b>"| A["080*<br>len=20"]
+        format_as_string -->|"<b>OP</b>"| B["001400607*<br>len=17"]
+        format_as_string -->|"<b>CS</b>"| C["000406210*<br>len=17"]
+        format_as_string -->|"<b>AES</b>"| D["080*<br>len=23"]
+        format_as_string -->|"<b>DUKE</b>"| E["[#x12]Z[#x9]<br>len=22"]
+        format_as_string -->|"<b>AM</b>"| F["*(no pattern)<br>len=10"]
+        format_as_string -->|"<b>COM</b>"| G["*(no pattern)<br>len=10"]
         %%A-.->B-.->C-.->D-.->E-.->F-.->G
         A--> dedupe_accounts
         B--> dedupe_accounts
