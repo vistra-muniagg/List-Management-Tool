@@ -218,6 +218,7 @@ For any `Mail Type`, all sibling accounts will be assigned the same eligibility 
 
 ## Eligibility Filter Order
 [Process Diagrams](DIAGRAMS.md#filter-data)
+
 1. PIPP
 2. State Rules (OH or IL)
 3. Annual Usage
