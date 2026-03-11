@@ -324,8 +324,8 @@ graph TD
 
     subgraph mapping["<b>Mapping</b>"]
     direction LR
-        populate_mapping["<b>Create Mapping File</b>"] --> query_db["Check Mapping Database"] --> process_db_results["Process Database Matches"]
-        process_db_results --> map_remaining["Map Remaining Accounts"] --> no_results["Check No Results"]
+        populate_mapping["<b>Create Mapping File</b>"] --> query_db["<b>Check Mapping Database</b>"] --> process_db_results["<b>Process Database Matches</b>"]
+        process_db_results --> map_remaining["<b>Map Remaining Accounts</b>"] --> no_results["<b>Check No Results</b>"]
     end
 
 
