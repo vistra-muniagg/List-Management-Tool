@@ -213,7 +213,7 @@ For any `Mail Type`, all sibling accounts will be assigned the same eligibility 
 |Mail Zip|text|clean version of the account mailing zip code|
 |Phone|number|account phone number if present|
 |Email|text|account email address if present|
-|Customer Class|text|Residential or Commercial based on gagg list rate code or LP premise|
+|Customer Class|text|Residential or Commercial based on rate code or LP premise|
 |Read Cycle|number|detected read cycle from the gagg list|
 
 ## Eligibility Filter Order
