@@ -132,7 +132,7 @@ The user uses `Y` and `N` to notate which instances are truly matching.
 Due to the time delay between a customer enrolling and the utility file being updated to reflect the new shopping status, it is necessary to query the Vistra systems to ensure the account is not participating in any electric choice programs offered by Vistra.
 In order to query all account activity in the Vistra systems, the eligible account numbers are put into a SQL query that returns any enrollemnt activity matching these account numbers. This query is currently run manually by the user, but may be automated in a future version.
 
-> [!NOTE]
+> [!Note]
 > There is a known gap in this step. The query only has access to accounts in `Mass Market` and `Muni-agg` programs, so any activity in another sales channel will not be returned in the query results.
 
 Using only the most recent activity on each account, the current enrollment status is determined. If an account is active on any other Vistra programs, its `Status` is updated accordingly and it is excluded from the current mailing.
