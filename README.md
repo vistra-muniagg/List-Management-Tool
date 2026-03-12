@@ -83,8 +83,7 @@ Firstly, the `Save Waterfall` button prompts the user to save a copy of the tool
 Additionally, the user needs to use the dropdowns to select the appropriate `Utility` and `Mail Type`
 Below those dropdowns is a place to enter the community name. This is the formal name of the community (City of Akron, Summmit County, etc.)
 
-### 1. Import Files
-[Process Diagram](DIAGRAMS.md#import-files)
+### 1. Import Files [[Diagram](DIAGRAMS.md#import-files)]
 After the `Utility`, `Mail Type`, and `Community Name` have been provided, the `Import File` button will unlock and provide the appropriate options based on `Mail Type`.
 When a file is selected, it is automatically opened and the data is added to a separate worksheet.
 If the selection inclues more than one worksheet containing utility data, these are combined into a single sheet.
@@ -104,15 +103,13 @@ All required files must be imported before proceeding to the next step.
 * Renewal Only `REN_ONLY`
   *  Active Customer List (from LandPower)
 
-### 2. Normalize Data
-[Process Diagram](DIAGRAMS.md#trim-data)
+### 2. Normalize Data [[diagram](DIAGRAMS.md#trim-data)]
 After all required files have been imported, the utility data (if present) is transferred to the `Filter Tab`, which contains all the rows from the utility file, but the columns are standardized.
 This enables us to easily read data from every utility the exact same way. Details about the various columns can be found [here](#filter-tab-columns).
 If a field is not provided on the utility list, it is marked with the standard `-` to denote an empty cell.
 If any lists are applcable besides the utility list, those records are checked against the existing list and any mismatches are added, populating any fields that are available on the list.
 
-### 3. Utility Data Exclusions
-[Process Diagram](DIAGRAMS.md#filter-data)
+### 3. Utility Data Exclusions [[diagram](DIAGRAMS.md#filter-data)]
 Depending on the operating state (`OH` or `IL`) there are different rules that govern which accounts are eligible to enroll.
 Using the available data on the `Filter Tab`, various fields are checked against the eligibility condition for that state and the `Status` of each account is updated accordingly.
 The order those fields are checked in and the conditions for eligibility can be found [here](#eligibility-filter-order)
@@ -120,8 +117,7 @@ The order those fields are checked in and the conditions for eligibility can be 
 ### 4. External Data Exclusions
 In addition to the rules put forth by the operating state, there are requirements to check outside sources of data to further trim the eligible population after the initial checks.
 
-#### Do Not Aggregate (DNA)
-[Process Diagram](DIAGRAMS.md#puco-do-not-agg-list)
+#### Do Not Aggregate (DNA List) [[diagram](DIAGRAMS.md#puco-do-not-agg-list)]
 In OH, the PUCO maintains a list of customers wishing to not be included in any aggregation programs, called the `Do Not Aggregate List`, or `DNA List`.
 The tool checks the eligible accounts against a recent copy of the `DNA List` and provides the user with a sheet of potential matches for manual comparison.
 Due to less-than-ideal data on this list, there are 2 kinds of searches carried out in this step.
@@ -132,8 +128,7 @@ This is done to prevent any misspellings from affecting the accuracy of our sear
 This comparison includes the customer name, service address, and account number.
 The user uses `Y` and `N` to notate which instances are truly matching.
 
-#### LandPower System Comparison (Contracts Query)
-[Process Diagram](DIAGRAMS.md#contracts-query)
+#### LandPower System Comparison (Contracts Query) [[diagram](DIAGRAMS.md#contracts-query)]
 Due to the time delay between a customer enrolling and the utility file being updated to reflect the new shopping status, it is necessary to query the Vistra systems to ensure the account is not participating in any electric choice programs offered by Vistra.
 In order to query all account activity in the Vistra systems, the eligible account numbers are put into a SQL query that returns any enrollemnt activity matching these account numbers. This query is currently run manually by the user, but may be automated in a future version.
 
@@ -142,7 +137,7 @@ In order to query all account activity in the Vistra systems, the eligible accou
 
 Using only the most recent activity on each account, the current enrollment status is determined. If an account is active on any other Vistra programs, its `Status` is updated accordingly and it is excluded from the current mailing.
 
-#### Geocoding (Mapping)
+#### Geocoding (Mapping) [[diagram](DIAGRAMS.md#geocoding)]
 Legal has mandated that only customers located in the eligible boundaries for the program can be enrolled.
 Due to the time required to geocode an entire list, there is another tool (see [Mapping Tool](MAPPING_TOOL.md) specifically used for geocoding.
 For each account, the service address is mapped and the customer is determined to be inside the geographic boundaries of the program (`Mapped In`) or outside (`Mapped Out`).
