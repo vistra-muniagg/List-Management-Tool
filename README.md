@@ -1,4 +1,4 @@
-# List-Management-Tool `Draft #1 (11-10-25)`
+# List-Management-Tool `Draft #1`
 
 &copy; 2025 Andrew Rodgers
 
